@@ -1,0 +1,21 @@
+{
+  "total_problems": 23824,
+  "problem_counts": {
+    "Codeforces": 11245,
+    "AtCoder": 9035,
+    "LeetCode": 3544
+  },
+  "contest_counts": {
+    "AtCoder": 6069,
+    "Codeforces": 2120
+  },
+  "leetcode_difficulty_counts": {
+    "Medium": 1885,
+    "Hard": 871,
+    "Easy": 788
+  },
+  "codeforces_with_rating": 10961,
+  "atcoder_with_model": 4684,
+  "leetcode_acceptance_mean": 56.720004012625125,
+  "leetcode_tag_count": 69
+}

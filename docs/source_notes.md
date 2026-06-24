@@ -37,6 +37,12 @@ LeetCode 数据分为两个来源：
 - `all_problems.csv`
 - `all_contests.csv`
 - `leetcode_tag_acceptance.csv`
+- `platform_problem_counts.csv`
+- `difficulty_distribution.csv`
+- `contest_year_trend.csv`
+- `codeforces_tag_stats.csv`
+- `leetcode_tag_difficulty_matrix.csv`
+- `leetcode_low_acceptance_tags.csv`
 
 主要清洗逻辑：
 
@@ -45,4 +51,4 @@ LeetCode 数据分为两个来源：
 3. 合并 AtCoder 题目表和难度模型。
 4. 基于 LeetCode `topicTags` 和 `acRate` 计算标签级平均通过率。
 5. 基于比赛标题或 ID 识别 Codeforces/AtCoder 比赛类型。
-
+6. 从主表派生题量、难度分布、年度趋势、标签统计等 analysis-ready CSV，方便直接绘图。

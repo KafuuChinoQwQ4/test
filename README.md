@@ -26,6 +26,12 @@ github_dataset/
 │   ├── atcoder_problems.csv
 │   ├── leetcode_problems.csv
 │   ├── leetcode_tag_acceptance.csv
+│   ├── platform_problem_counts.csv
+│   ├── difficulty_distribution.csv
+│   ├── contest_year_trend.csv
+│   ├── codeforces_tag_stats.csv
+│   ├── leetcode_tag_difficulty_matrix.csv
+│   ├── leetcode_low_acceptance_tags.csv
 │   └── summary.json
 ├── figures/
 └── docs/
@@ -51,6 +57,15 @@ github_dataset/
 - `processed/all_contests.csv`: Codeforces 和 AtCoder 比赛表。
 - `processed/leetcode_tag_acceptance.csv`: LeetCode 算法标签通过率统计。
 - `processed/summary.json`: 数据规模摘要。
+
+如果想直接画图，可以使用这些分析结果表：
+
+- `processed/platform_problem_counts.csv`: 三平台题目数量。
+- `processed/difficulty_distribution.csv`: 三平台难度分布和占比。
+- `processed/contest_year_trend.csv`: Codeforces/AtCoder 年度比赛数量。
+- `processed/codeforces_tag_stats.csv`: Codeforces 标签题量、平均 rating、平均通过人数。
+- `processed/leetcode_tag_difficulty_matrix.csv`: LeetCode 标签难度结构。
+- `processed/leetcode_low_acceptance_tags.csv`: LeetCode 低通过率标签排行。
 
 如果需要追溯原始采集结果，使用 `raw/`。
 
@@ -78,4 +93,3 @@ github_dataset/
 ## License and Use
 
 本仓库只整理公开接口返回的数据，原始数据所有权归对应平台或数据源维护者所有。使用时请遵守各平台服务条款，并在报告或项目中注明数据来源。
-

@@ -47,6 +47,62 @@ LeetCode 算法标签通过率统计表。
 | `medium_count` | 该标签下 Medium 题目数量 |
 | `hard_count` | 该标签下 Hard 题目数量 |
 
+## `processed/platform_problem_counts.csv`
+
+| Column | Description |
+|---|---|
+| `platform` | 平台名称 |
+| `problem_count` | 该平台题目数量 |
+
+## `processed/difficulty_distribution.csv`
+
+| Column | Description |
+|---|---|
+| `platform` | 平台名称 |
+| `difficulty_band` | 统一难度分组 |
+| `problem_count` | 该难度分组下题目数量 |
+| `percentage` | 该难度分组在对应平台中的占比 |
+
+## `processed/contest_year_trend.csv`
+
+| Column | Description |
+|---|---|
+| `platform` | 平台名称 |
+| `year` | 年份 |
+| `contest_count` | 该平台该年份比赛数量 |
+
+## `processed/codeforces_tag_stats.csv`
+
+| Column | Description |
+|---|---|
+| `tag` | Codeforces 算法标签 |
+| `problem_count` | 该标签题目数量 |
+| `mean_rating` | 该标签题目的平均 rating |
+| `median_rating` | 该标签题目的 rating 中位数 |
+| `mean_solved_count` | 该标签题目的平均通过人数 |
+| `median_solved_count` | 该标签题目的通过人数中位数 |
+| `easy_count` | Easy 题目数量 |
+| `medium_count` | Medium 题目数量 |
+| `hard_count` | Hard 题目数量 |
+| `unknown_count` | Unknown 题目数量 |
+
+## `processed/leetcode_tag_difficulty_matrix.csv`
+
+| Column | Description |
+|---|---|
+| `tag` | LeetCode 算法标签 |
+| `easy_count` | Easy 题目数量 |
+| `medium_count` | Medium 题目数量 |
+| `hard_count` | Hard 题目数量 |
+| `total_count` | 标签题目总数 |
+| `easy_percent` | Easy 占比 |
+| `medium_percent` | Medium 占比 |
+| `hard_percent` | Hard 占比 |
+
+## `processed/leetcode_low_acceptance_tags.csv`
+
+字段与 `leetcode_tag_acceptance.csv` 一致，但只保留题量不少于 20 的标签，并按平均通过率从低到高排序。
+
 ## Difficulty Mapping
 
 | Platform | Easy | Medium | Hard |
@@ -54,4 +110,3 @@ LeetCode 算法标签通过率统计表。
 | Codeforces | rating < 1200 | 1200 <= rating < 2000 | rating >= 2000 |
 | AtCoder | difficulty < 800 | 800 <= difficulty < 2000 | difficulty >= 2000 |
 | LeetCode | level = 1 or EASY | level = 2 or MEDIUM | level = 3 or HARD |
-

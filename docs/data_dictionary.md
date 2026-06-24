@@ -22,7 +22,7 @@
 
 ## `processed/all_contests.csv`
 
-统一后的比赛表。
+统一后的比赛表。AtCoder 的 `adt_*` Daily Training 训练场已从该表中过滤，避免在正式比赛趋势中把练习场计为比赛。
 
 | Column | Description |
 |---|---|
@@ -32,6 +32,50 @@
 | `start_time` | 比赛开始时间 |
 | `year` | 比赛年份 |
 | `contest_family` | 比赛类型，如 `Div.2`、`Educational`、`ABC`、`ARC`、`AGC` |
+
+## `processed/codeforces_rated_users.csv`
+
+Codeforces rated 选手表，来自 `user.ratedList`。
+
+| Column | Description |
+|---|---|
+| `handle` | Codeforces 用户名 |
+| `country` | 用户公开填写的国家/地区 |
+| `city` | 用户公开填写的城市 |
+| `organization` | 用户公开填写的组织 |
+| `rating` | 当前 rating |
+| `max_rating` | 历史最高 rating |
+| `rank` | 当前 rank 文本 |
+| `max_rank` | 历史最高 rank 文本 |
+| `rating_band` | 当前 rating 对应段位 |
+| `max_rating_band` | 历史最高 rating 对应段位 |
+| `contribution` | 贡献值 |
+| `friend_of_count` | 被加入好友数量 |
+
+## `processed/codeforces_country_stats.csv`
+
+Codeforces 国家/地区选手统计表。
+
+| Column | Description |
+|---|---|
+| `country` | 国家/地区 |
+| `user_count` | rated 选手数量 |
+| `mean_rating` | 当前 rating 平均值 |
+| `median_rating` | 当前 rating 中位数 |
+| `max_rating` | 该国家/地区当前最高 rating |
+| `candidate_master_plus_count` | 当前 rating >= 1900 的选手数量 |
+| `candidate_master_plus_ratio` | Candidate Master 及以上选手占比 |
+
+## `processed/codeforces_rating_band_country.csv`
+
+Codeforces Top20 国家/地区 rating 段分布。
+
+| Column | Description |
+|---|---|
+| `country` | 国家/地区 |
+| `rating_band` | Codeforces rating 段位 |
+| `user_count` | 该国家/地区该段位人数 |
+| `percentage` | 该段位在该国家/地区 rated 选手中的占比 |
 
 ## `processed/leetcode_tag_acceptance.csv`
 
@@ -110,3 +154,18 @@ LeetCode 算法标签通过率统计表。
 | Codeforces | rating < 1200 | 1200 <= rating < 2000 | rating >= 2000 |
 | AtCoder | difficulty < 800 | 800 <= difficulty < 2000 | difficulty >= 2000 |
 | LeetCode | level = 1 or EASY | level = 2 or MEDIUM | level = 3 or HARD |
+
+## Codeforces User Rating Bands
+
+| Band | Rating Range |
+|---|---|
+| `Newbie` | rating < 1200 |
+| `Pupil` | 1200 <= rating < 1400 |
+| `Specialist` | 1400 <= rating < 1600 |
+| `Expert` | 1600 <= rating < 1900 |
+| `Candidate Master` | 1900 <= rating < 2100 |
+| `Master` | 2100 <= rating < 2300 |
+| `International Master` | 2300 <= rating < 2400 |
+| `Grandmaster` | 2400 <= rating < 2600 |
+| `International Grandmaster` | 2600 <= rating < 3000 |
+| `Legendary Grandmaster` | rating >= 3000 |

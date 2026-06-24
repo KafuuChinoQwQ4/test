@@ -2,7 +2,7 @@
 
 本数据集用于“大数据可视化技术”课程作业：**算法竞赛平台数据可视化分析**。
 
-数据来自公开平台接口采集，并在本仓库中整理为原始 JSON、清洗 CSV 和可视化图表。数据覆盖 Codeforces、AtCoder Problems 和 LeetCode 三个平台，可用于分析题库规模、难度结构、算法标签、通过率和竞赛活跃度。
+数据来自公开平台接口采集，并在本仓库中整理为原始 JSON、清洗 CSV 和可视化图表。数据覆盖 Codeforces、AtCoder Problems 和 LeetCode 三个平台，可用于分析题库规模、难度结构、算法标签、通过率、竞赛活跃度、Codeforces 国家/地区选手数量和 rating 分布。
 
 ## Dataset Structure
 
@@ -11,7 +11,8 @@ github_dataset/
 ├── raw/
 │   ├── codeforces/
 │   │   ├── codeforces_problemset_problems.json
-│   │   └── codeforces_contest_list.json
+│   │   ├── codeforces_contest_list.json
+│   │   └── codeforces_rated_users.json
 │   ├── atcoder/
 │   │   ├── atcoder_problems.json
 │   │   ├── atcoder_contests.json
@@ -25,7 +26,10 @@ github_dataset/
 │   ├── codeforces_problems.csv
 │   ├── atcoder_problems.csv
 │   ├── leetcode_problems.csv
+│   ├── codeforces_rated_users.csv
 │   ├── leetcode_tag_acceptance.csv
+│   ├── codeforces_country_stats.csv
+│   ├── codeforces_rating_band_country.csv
 │   ├── platform_problem_counts.csv
 │   ├── difficulty_distribution.csv
 │   ├── contest_year_trend.csv
@@ -46,7 +50,9 @@ github_dataset/
 | AtCoder problems | 9035 |
 | LeetCode algorithm problems | 3544 |
 | Codeforces contests | 2120 |
-| AtCoder contests | 6069 |
+| AtCoder main contests | 1497 |
+| Codeforces rated users | 130057 |
+| Codeforces countries/regions | 208 |
 | LeetCode tags | 69 |
 
 ## Recommended Files
@@ -55,6 +61,7 @@ github_dataset/
 
 - `processed/all_problems.csv`: 三平台统一题目表。
 - `processed/all_contests.csv`: Codeforces 和 AtCoder 比赛表。
+- `processed/codeforces_rated_users.csv`: Codeforces rated 选手表。
 - `processed/leetcode_tag_acceptance.csv`: LeetCode 算法标签通过率统计。
 - `processed/summary.json`: 数据规模摘要。
 
@@ -64,6 +71,8 @@ github_dataset/
 - `processed/difficulty_distribution.csv`: 三平台难度分布和占比。
 - `processed/contest_year_trend.csv`: Codeforces/AtCoder 年度比赛数量。
 - `processed/codeforces_tag_stats.csv`: Codeforces 标签题量、平均 rating、平均通过人数。
+- `processed/codeforces_country_stats.csv`: Codeforces 国家/地区选手数量、平均 rating、高水平选手占比。
+- `processed/codeforces_rating_band_country.csv`: Codeforces Top20 国家/地区 rating 段分布。
 - `processed/leetcode_tag_difficulty_matrix.csv`: LeetCode 标签难度结构。
 - `processed/leetcode_low_acceptance_tags.csv`: LeetCode 低通过率标签排行。
 
@@ -77,6 +86,7 @@ github_dataset/
 |---|---|---|
 | Codeforces | https://codeforces.com/api/problemset.problems | `raw/codeforces/codeforces_problemset_problems.json` |
 | Codeforces | https://codeforces.com/api/contest.list | `raw/codeforces/codeforces_contest_list.json` |
+| Codeforces | https://codeforces.com/api/user.ratedList?activeOnly=false | `raw/codeforces/codeforces_rated_users.json` |
 | AtCoder Problems | https://kenkoooo.com/atcoder/resources/problems.json | `raw/atcoder/atcoder_problems.json` |
 | AtCoder Problems | https://kenkoooo.com/atcoder/resources/contests.json | `raw/atcoder/atcoder_contests.json` |
 | AtCoder Problems | https://kenkoooo.com/atcoder/resources/problem-models.json | `raw/atcoder/atcoder_problem_models.json` |
@@ -86,7 +96,9 @@ github_dataset/
 ## Notes
 
 - Codeforces 的 `rating` 和 `tags` 来自题库接口，`solvedCount` 表示通过人数。
+- Codeforces rated 选手数据来自 `user.ratedList`，只使用用户公开填写的国家/地区和公开 rating 字段。
 - AtCoder 难度来自 AtCoder Problems 的 IRT 模型，不是 AtCoder 官方字段。
+- AtCoder Problems 的 `contests.json` 包含大量 `adt_*` Daily Training 训练场，`processed/all_contests.csv` 已过滤这些训练场，以便统计主要正式比赛趋势。
 - LeetCode 的标签通过率来自 GraphQL 网页接口中的 `topicTags` 和 `acRate`。
 - 不同平台难度定义不完全一致，`processed/all_problems.csv` 中的 `difficulty_band` 是为了横向可视化而统一映射得到。
 

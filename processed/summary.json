@@ -6,8 +6,8 @@
     "LeetCode": 3544
   },
   "contest_counts": {
-    "AtCoder": 6069,
-    "Codeforces": 2120
+    "Codeforces": 2120,
+    "AtCoder": 1497
   },
   "leetcode_difficulty_counts": {
     "Medium": 1885,
@@ -17,5 +17,7 @@
   "codeforces_with_rating": 10961,
   "atcoder_with_model": 4684,
   "leetcode_acceptance_mean": 56.720004012625125,
-  "leetcode_tag_count": 69
+  "leetcode_tag_count": 69,
+  "codeforces_rated_user_count": 130057,
+  "codeforces_country_count": 208
 }
